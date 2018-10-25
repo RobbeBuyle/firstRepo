@@ -1,10 +1,11 @@
-import Vector from './Vector';
+import Vector from './Vector.js';
 
 export default class GameObject {
   constructor(x, y, image) {
     this.location = new Vector(x, y);
     this.image = image;
     this.size = this.image.height;
+    
     this.frameRate = 60;
     this.frameNr = 0;
     this.localFrameNr = 0;
@@ -14,7 +15,7 @@ export default class GameObject {
   update() {
     this.frameNr++;
     this.localFrameNr = Math.floor(this.frameNr / (60 / this.frameRate));
-    this.localFrameNr = this.localFrame % this.numFrames;
+    this.localFrameNr = this.localFrameNr % this.numFrames;
   }
 
   draw(ctx){
